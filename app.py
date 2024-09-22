@@ -3,9 +3,7 @@ import requests
 from flask import Flask, request, send_file
 from twilio.twiml.voice_response import VoiceResponse
 import openai
-
 app = Flask(__name__)
-
 # Set up API keys (replace these with your actual keys)
 DEEPGRAM_API_KEY = "db9a5a32d08c917d679c7f55aa3f48edc0096b0a"
 OPENAI_API_KEY = "sk-qP-FZ9XGCwNlY04OCpm5xrBo-apViZyjx_kp25r_C3T3BlbkFJvZmHs4OPbg4U-PARaPlRE-xR2GYtb7MgVRBOuZRRMA"
@@ -82,4 +80,11 @@ def transcribe():
 @app.route("/static/response.mp3")
 def serve_audio():
     return send_file("response.mp3", mimetype="audio/mp3")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+
 
